@@ -5,4 +5,6 @@ import re
 
 def slugify(text: str) -> str:
     """Lower-case the text and join its words with single hyphens."""
-    return re.sub(r"\s+", "-", text.strip().lower())
+    text = text.lower()
+    cleaned = re.sub(r"[^a-z0-9]+", "-", text)
+    return cleaned.strip("-")
